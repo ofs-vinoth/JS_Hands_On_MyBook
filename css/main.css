@@ -1,0 +1,32 @@
+div#header {
+    display: block;  background-color: cornflowerblue;  height: 80px;  border-bottom-width: medium;  border-bottom-color: beige;  border-bottom-style: ridge;
+}
+.nav {
+    float: left;  border-style: outset;  border-right-color: #0000ff;  border-right-width: 5px;  width: 10%;  height: 100%;
+}
+label#headerText {
+    font-family: initial;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: bold;
+    padding-left: 30px;
+    float: left;
+}
+.loginDiv {
+    float: right;
+    padding-top: 22px;
+    padding-right: 50px;
+}
+label.loginLabel {
+    font-family: initial;
+    font-size: 20px;
+    font-weight: bold;
+}
+input[type="image"] {
+    width: 986;
+    height: 615;
+    display: block;      margin-left: auto;      margin-right: auto;
+}
+div#main {
+    width: 100%;
+}
