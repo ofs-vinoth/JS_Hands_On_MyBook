@@ -1,14 +1,14 @@
 credential
 -----------
 
-username:raj.
-password:vinoth.
+Username : raj.
+Password : vinoth.
 
 
 Steps
 ----------
-1.clone the project.
-2.open index.html in browser.
-3.login with given credential.
+1.Clone the project.
+2.Open index.html in browser.
+3.Login with given credential.
 
 
