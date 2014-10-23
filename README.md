@@ -1,6 +1,10 @@
-username:raj
-password:vinoth
-----------
+credential
+-----------
+
+username:raj.
+password:vinoth.
+
+
 Steps
 ----------
 1.clone the project.
