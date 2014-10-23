@@ -1,54 +1,54 @@
-/**
- * LOGIN Class
- * Do all Login page related operation like sign in, validation .. etc.
- *
- */
-var LOGIN = function() {
+
+//Maintainig Gloabl level
+var service = new FEEDSERVICE();
+var profileService = new ProfileService();
+var feedCont = new FeedController();
+var proCont = new ProfileController();
+var profile = new ProfileController().getDefaultprofile();
+profileService.addProfile(profile);
+Array.prototype.removeByIndex = function(index) {
+    this.splice(index, 1);
+};
+
+var renderUI = function() {
+	var feeds = service.getFeeds();
+	var profile = profileService.getProfile("raj");
 	
-	var username = "";
-	var password = "";
 	
-	return {
-		/**
-		 * Get username & password from text field.
-		 * Validate username & password.
-		 * Once user credential validated, it will redirect to Feed page.
-		 */
-		signIn: function() {
-			username = document.getElementById("usename").value;
-			password = document.getElementById("password").value;
-			try {
-				if (!this.validate(username, password)) return;
-				
-				if ("raj" == username && "vinoth" == password) {
-					window.location = "feed.html"
-					return;
-				} else {
-										
-				}
-			} catch (err) {
-				alert(err);
-				document.getElementById("usename").value = "";
-				document.getElementById("password").value = "";
-			}			
-		},
-		
-		/**
-		 * Validate username & password.
-		 * Username field Should be 1-8 characters .
-		 * Password field should be 1-6 characters
-		 */
-		validate:function(username, password) {
-		
-			var message = null;
-			if (username == null || username.length <1 || username.length > 8) {
-				throw("Invalid User Name : User Name should not empty & gretaer than 8 characters");
-				
-			} else if (password == null || password.length < 1 || password.length < 6) {
-				throw("Invalid Password : Password should not empty & less than 6 characters");				
+	var loadProfile = function(profile) {
+		document.getElementById("name").setAttribute("value", profile.getName());
+		document.getElementById("age").setAttribute("value", profile.getAge());
+		document.getElementById("phone").setAttribute("value", profile.getPhone());
+		document.getElementById("email").setAttribute("value", profile.getEmail());
+		document.getElementById("address").value = profile.getAddress();
+		document.getElementById("pImage").setAttribute("src", profile.getImageSrc());
+		document.getElementById("saveProfile").onclick = function() {new FeedController().deleteFeed(feed);}		
+	}
+	
+	var element = document.getElementById("feeds");
+	element.innerHTML = "";
+	feeds.forEach(feedCont.addFeedDiv);
+	document.getElementById("name").className = "main-container";
+	proCont.loadProfile(profile);
+}
+
+var refreshMenu = function(currentMenu) {
+
+   var found = false;
+   var elements = document.getElementsByClassName("a_menu");
+   if (currentMenu) { 
+	   for (i = 0; i < elements.length; i++) {
+			if(elements[i].innerHTML==currentMenu.innerHTML) {
+				elements[i].parentElement.classList.add('selected');
+			 found = true;
+			} else {
+				elements[i].parentElement.classList.remove('selected');
 			}
-			return true;
 		}
 	}
+   if(!found){
+	  document.getElementByClass("a_menu")[0].parentElement.classList.add('selected');
+   }
+}
+renderUI();
 
-};

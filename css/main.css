@@ -1,5 +1,5 @@
 div#header {
-    display: block;  background-color: #8DC3D3;  height: 80px;  border-bottom-width: medium;  border-bottom-color: beige;  border-bottom-style: ridge;
+    display: block;  background-color: #006699;  height: 80px;  border-bottom-width: medium;  border-bottom-color: beige;  border-bottom-style: ridge;
 }
 .nav {
     float: left;  border-style: outset;  border-right-color: #0000ff;  border-right-width: 5px;  
@@ -39,10 +39,20 @@ input.BtnsignOut {
     background: none!important;  border: none;  padding: 0!important;  border-bottom: 1px solid #0000AB;  cursor: pointer;
 }
 
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+body {
+    background-color: rgb(229, 226, 253);
+}
+
 
 .feedPost {
     display: block;
-    height: 50px;
     padding: 10px;
 }
 input.txtFeed {
@@ -83,6 +93,13 @@ label.feedLabel {
     padding: 20px;
     font-family: cursive;
 }
+
+label.feedText {
+    padding: 20px;
+    font-family: cursive;
+	width:200px;
+}
+
 input.btnDelFeed {
     background: none!important;  border: none;  padding: 0!important;
     font-weight: bold;
@@ -98,68 +115,31 @@ input.btnDelFeed {
     padding-right: 15px;
 }
 
+.proImg {
+    height: 50;
+    width: 50;
+}
 
-.menu
-/* layout main menu */
- {
-    clear:both;
-    float:left;
-    margin-top:1em;
-    padding-bottom:1em;
-    width:100%;
-    background-color:gimgrey;
-    background-image:url('/templates/swimming/images/logo.png');
-    background-repeat:no-repeat;
+.editProfile {
+    height: 100%;
+    width: 50%;
+    float: left;
+    display: block;
+    padding-left: 50px;
+    padding-top: 50px;
 }
-ul.menu {
-    display: table;
-    margin-left: auto;
-    margin-right: 0em;
+.editProfileImg {
+    float: right;
+    width: 50%;
+    height: 100%;
+    display: block;
 }
-.menu li
-/* horizontal menu layout */
- {
-    display: inline-block;
-    border: 3px solid #FFFFFF;
-    border-radius: 10px;
-    margin-right:30px;
-    background-color: #4180dd;
+
+.pImage {
+    height: 152;
+    width: 229;
 }
-.menu li a:hover
-/* link style on-mouse-over */
- {
-    color:#FFFFFF;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-.menu li:hover
-/* button style on-mouse-over */
- {
-    border: 3px solid #FFFFFF;
-    border-radius: 10px;
-    background-color: #dd417f;
-}
-.menu li a
-/* link style */
- {
-    color:#FFFFFF;
-    font-size: 1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    padding: 0.7em 1em 0.7em 1em;
-}
-.menu li.active a
-/* active menu item style */
- {
-    color:#FFFFFF;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-.menu li.active
-/* active menu button style */
- {
-    border: 3px solid #FFFFFF;
-    border-radius: 10px;
-    background-color: #dd417f;
+#feedPage {
+	height: inherit;
+    overflow: auto;
 }

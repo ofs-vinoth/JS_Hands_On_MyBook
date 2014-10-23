@@ -1,0 +1,88 @@
+<html><head>
+<title>MyBook</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/menu.css">
+<script type="text/javascript" src="js/login.js"> </script>
+<script type="text/javascript" src="js/models/feed.js"></script>
+<script type="text/javascript" src="js/models/profile.js"></script>
+<script type="text/javascript" src="js/services/feedservice.js"></script>
+<script type="text/javascript" src="js/services/profileService.js"></script>
+<script type="text/javascript" src="js/controllers/feedController.js"></script>
+<script type="text/javascript" src="js/controllers/ProfileController.js"></script>
+<style type="text/css"></style><style type="text/css"></style></head>
+<body bgcolor="White">
+  <div id="header">
+  <label id="headerText">MyBook</label>
+  <div class="loginDiv">
+    <input type="button" class="BtnsignOut" value="Sign out" onclick="new LOGIN().signOut()">
+  </div>
+</div>
+<div id="content" width="100%">
+	<div id="tab-container">
+		<ul>
+			<li class = "selected"><a class="a_menu" onClick="new FeedController().viewFeeds(this)">Feed</a>
+			</li>
+			<li><a class="a_menu" onClick="new ProfileController().viewProfile(this)">Profile</a>
+			</li>			
+		</ul>
+	</div>	
+	<div id="main-container" class="main-container">
+		<div id="feedPage" class="show">
+		  <div id="post" class="feedPost">
+			<input id="postFeed" type="text" value="Text Feed or URL Feed" class="txtFeed">
+			<input type="button" value="post" class="btnFeedPost" onClick="new FeedController().postFeed()">	  
+		  </div>
+		  <div id="feeds" class="feedPost">		
+		  </div>
+		</div>
+	  <div id="profilePage" class="hidden">
+		<table><tr><td>
+		  <div class="editProfile">
+			<table>
+				<tr>				
+					<td><label class="loginLabel">Name</label></td>
+					<td>:</td>
+					<td><input id="name" type="text"></td>
+				</tr>
+				<tr>
+					<td><label class="loginLabel">Age</label></td>
+					<td>:</td>
+					<td><input id="age" type="text"></td>
+				</tr>
+				<tr>
+					<td><label class="loginLabel">Phone</label></td>
+					<td>:</td>
+					<td><input id="phone" type="text"></td>
+				</tr>
+				<tr>
+					<td><label class="loginLabel">Email</label></td>
+					<td>:</td>
+					<td><input id="email" type="text"></td>
+				</tr>
+				<tr>
+					<td><label class="loginLabel">Address</label></td>
+					<td>:</td>
+					<td><textarea id="address" rows="4" cols="50"></textarea></td>
+				</tr>
+				<tr>
+					<td><label class="loginLabel">Profile Image</label></td>
+					<td>:</td>
+					<td><input type="file" id="myFile"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><input id = "saveProfile" type="button" value="Save" class="btnFeedPost" /></td>
+				</tr>
+			</table>
+		</div></td>
+		<td>
+		<div class="editProfileImg">
+			<img id="pImage" class="pImage"></img>
+		</div>
+		</tr></td></table>
+	  </div>
+	</div>
+	<script type="text/javascript" src="js/main.js"> </script>
+</div>
+</body></html>
