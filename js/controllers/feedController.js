@@ -29,7 +29,6 @@ var FeedController = function() {
 		isURL : function(str) {
 			var pattern = new RegExp('^(?:[a-z]+:)?//', 'i');
 			if(!pattern.test(str)) {
-				alert("Please enter a valid URL.");
 				return false;
 			} else {
 				return true;
@@ -94,8 +93,10 @@ var FeedController = function() {
 		},
 		
 		viewFeeds : function(e) {
-			document.getElementById("feedPage").className = "show";
-			document.getElementById("profilePage").className = "hidden";
+			document.getElementById("feedPage").classList.add("show");
+			document.getElementById("profilePage").classList.add("hidden");
+			document.getElementById("feedPage").classList.remove("hidden");
+			document.getElementById("profilePage").classList.remove("show");	
 			refreshMenu(e);
 		}
 	}

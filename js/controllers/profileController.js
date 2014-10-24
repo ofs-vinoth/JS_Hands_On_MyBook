@@ -8,7 +8,7 @@ var ProfileController = function() {
 			profile.setPhone("9894312712");
 			profile.setEmail("vinoth@hotmail.com");
 			profile.setAddress("chennai");
-			profile.setImageSrc("D:\\vin_backUp\\dev\\training\\mean\\js-handson\\MyBook\\images\\me.jpg");
+			profile.setImageSrc("images\\me.jpg");
 			profile.setUserId("raj");
 			
 			return profile;
@@ -25,6 +25,7 @@ var ProfileController = function() {
 		},
 		
 		saveProfile : function(profile) {
+		
 			profile.setName(document.getElementById("name").value);
 			profile.setAge(document.getElementById("age").value);
 			profile.setPhone(document.getElementById("phone").value);
@@ -32,13 +33,32 @@ var ProfileController = function() {
 			profile.setAddress(document.getElementById("address").value);
 			//TODO:Not able to get resource location in Java script
 			//profile.setImageSrc(document.getElementById("myFile").value);
+			try {
+				new ProfileController().validateProfile(profile);			
+			} catch (err) {
+				alert(err);
+			}
 			profileService.updateProfile(profile);
 			new ProfileController().loadProfile(profile);
 		}, 
 		
+		validateProfile : function(profile) {
+		
+			if (!profile.getName()) 
+				throw ("Invalid name");
+			else if (!profile.getAge()) 
+				throw ("Invalid Age");
+			else if (!profile.getPhone()) 
+				throw ("Invalid Phone");
+			else if (!profile.getEmail()) 
+				throw ("Invalid Email");			 
+		}, 
+		
 		viewProfile : function(e) {
-			document.getElementById("feedPage").className = "hidden";
-			document.getElementById("profilePage").className = "show";
+			document.getElementById("feedPage").classList.remove("show");
+			document.getElementById("profilePage").classList.remove("hidden");
+			document.getElementById("feedPage").classList.add("hidden");
+			document.getElementById("profilePage").classList.add("show");			
 			refreshMenu(e);
 		}
 	};
